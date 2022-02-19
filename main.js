@@ -1,9 +1,9 @@
 function rcparse() {
-  var hex = document.getElementById("rc4").innerHTML;
+  var hex = document.getElementById("rc4").value;
   if (hex == "") {
-    var r = +document.getElementById("rc1").innerHTML;
-    var g = +document.getElementById("rc2").innerHTML;
-    var b = +document.getElementById("rc3").innerHTML;
+    var r = document.getElementById("rc1").value;
+    var g = document.getElementById("rc2").value;
+    var b = document.getElementById("rc3").value;
   } else {
     var r = parseInt(hex.substr(1,2),16);
     var g = parseInt(hex.substr(3,2),16);
