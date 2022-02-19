@@ -10,7 +10,16 @@ function rcparse() {
     var b = parseInt(hex.substr(5,2),16);
   }
   
-  return rgbtocmyk(r,g,b);
+  var c = rgbtocmyk(r,g,b)[0];
+  var m = rgbtocmyk(r,g,b)[1];
+  var y = rgbtocmyk(r,g,b)[2];
+  var k = rgbtocmyk(r,g,b)[3];
+  document.getElementById("rc5").innerHTML = c;
+  document.getElementById("rc6").innerHTML = m;
+  document.getElementById("rc7").innerHTML = y;
+  document.getElementById("rc8").innerHTML = k;
+  document.getElementById("output1").style.display = "inline-block";
+  document.getElementById("output2").style.display = "inline-block";
 }
 
 function rgbtocmyk(r,g,b) {
