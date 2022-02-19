@@ -1,20 +1,39 @@
-function rgbtocmyk(r,g,b) {
-  r = r/255;
-  g = g/255;
-  b = b/255;
-  var k = Math.floor((1-Math.max(r,g,b))*100);
-  if (k==100) {
-    return [0,0,0,100];
+function rcparse() {
+  var hex = document.getElementById("rc4").innerHTML;
+  if (hex == "") {
+    var r = document.getElementById("rc1").innerHTML;
+    var g = document.getElementById("rc2").innerHTML;
+    var b = document.getElementById("rc3").innerHTML;
   } else {
-    var c = Math.floor((1-r-k)/(1-k)*100);
-    var m = Math.floor((1-g-k)/(1-k)*100);
-    var y = Math.floor((1-b-k)/(1-k)*100);
+    var r = parseInt(hex.substr(1,2),16);
+    var g = parseInt(hex.substr(3,2),16);
+    var b = parseInt(hex.substr(5,2),16);
   }
   
-  for (i in [c,m,y,k]) {
-    if (i<0) {
-      i = 0;
-    }
-  }
-  return [c,m,y,k];
+  return rgbtocmyk(r,g,b);
+}
+
+function rgbtocmyk(r,g,b) {
+
+r = r/255;
+g = g/255;
+b = b/255;
+
+var k = 1-Math.max(r,g,b);
+
+if (k==1) {
+var c = 0;
+var m = 0;
+var y = 0;
+} else {
+var c = (1-r-k)/(1-k);
+var m = (1-g-k)/(1-k);
+var y = (1-b-k)/(1-k);
+}
+
+c = Math.max(0,Math.floor(c*100));
+m = Math.max(0,Math.floor(m*100));
+y = Math.max(0,Math.floor(y*100));
+k = Math.max(0,Math.floor(k*100));
+return [c,m,y,k];
 }
