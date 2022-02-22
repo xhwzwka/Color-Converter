@@ -1,3 +1,3 @@
 # Color-Converter
 
-A website for converting between different color models, like RGB, CMUK, HSV and HSL.
+A website for converting between different color models, like RGB, CMYK, HSV and HSL.
