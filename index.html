@@ -10,19 +10,21 @@
     <p>Convert from: <select id="sourcecol">
       <option>RGB</option>
       <option>CMYK</option>
-      <option>HSL</option>
       <option>HSV</option>
+      <option>HSL</option>
     </select></p>
     <p>Convert to: <select id="destcol">
       <option>RGB</option>
       <option>CMYK</option>
-      <option>HSL</option>
       <option>HSV</option>
+      <option>HSL</option>
     </select></p>
     <br>
-    <p>R (0-255): <input type="text" id="rc1"></p>
-    <p>G (0-255): <input type="text" id="rc2"></p>
-    <p>B (0-255): <input type="text" id="rc3"></p>
+    <div id="rgb">
+    <p>R (0-255): <input type="number" min="0" max="255" id="rc1"></p>
+    <p>G (0-255): <input type="number" min="0" max="255" id="rc2"></p>
+    <p>B (0-255): <input type="number" min="0" max="255" id="rc3"></p>
+    </div>
     <br>
     <p>Hex code (#000000-#ffffff): <input type="text" id="rc4"></p>
     <p>Note: If a hex code is entered it takes priority over any decimal values entered.</p>
