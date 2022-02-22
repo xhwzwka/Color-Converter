@@ -8,13 +8,13 @@
   </head>
   <body style="text-align: center">
     <form onsubmit="rcparse(); return false;">
-    <p>Convert from: <select name="source" id="sourcecol">
+    <p>Convert from: <select id="sourcecol">
       <option>RGB</option>
       <option>CMYK</option>
       <option>HSV</option>
       <option>HSL</option>
     </select></p>
-    <p>Convert to: <select name="dest" id="destcol">
+    <p>Convert to: <select id="destcol">
       <option>RGB</option>
       <option>CMYK</option>
       <option>HSV</option>
@@ -22,12 +22,12 @@
     </select></p>
     <br>
     <div id="rgb">
-    <p>R (0-255): <input name="r" type="number" min="0" max="255" id="rc1"></p>
-    <p>G (0-255): <input name="g" type="number" min="0" max="255" id="rc2"></p>
-    <p>B (0-255): <input name="b" type="number" min="0" max="255" id="rc3"></p>
+    <p>R (0-255): <input type="number" min="0" max="255" id="rc1"></p>
+    <p>G (0-255): <input type="number" min="0" max="255" id="rc2"></p>
+    <p>B (0-255): <input type="number" min="0" max="255" id="rc3"></p>
     </div>
     <br>
-    <p>Hex code (#000000-#ffffff): <input name="hex" type="text" pattern="^#([A-Fa-f0-9]{6})$" id="rc4"></p>
+    <p>Hex code (#000000-#ffffff): <input type="text" pattern="^#([A-Fa-f0-9]{6})$" id="rc4"></p>
     <p>Note: If a hex code is entered it takes priority over any decimal values entered.</p>
     <input type="submit" value="Convert">
     </form>
