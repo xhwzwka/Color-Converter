@@ -14,12 +14,10 @@ function rcparse() {
   var m = rgbtocmyk(r,g,b)[1];
   var y = rgbtocmyk(r,g,b)[2];
   var k = rgbtocmyk(r,g,b)[3];
-  document.getElementById("rc5").innerHTML = c;
-  document.getElementById("rc6").innerHTML = m;
-  document.getElementById("rc7").innerHTML = y;
-  document.getElementById("rc8").innerHTML = k;
   document.getElementById("output1").style.display = "inline-block";
   document.getElementById("output2").style.display = "inline-block";
+  document.getElementById("output1").innerHTML = "C "+c+", M "+m+", Y "+y+", K "+k;
+  document.getElementById("output2").innerHTML = "Output is given as integers from 0 to 100.";
 }
 
 function rgbtocmyk(r,g,b) {
