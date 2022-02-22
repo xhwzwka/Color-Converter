@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="new.css">
     <script src="main.js"></script>
   </head>
-  <body  style="text-align: center">
-    <p>Convert from: <select id="sourcecol">
+  <body style="text-align: center">
+    <form onsubmit="rcparse()">
+    <p>Convert from: <select name="source" id="sourcecol">
       <option>RGB</option>
       <option>CMYK</option>
       <option>HSV</option>
       <option>HSL</option>
     </select></p>
-    <p>Convert to: <select id="destcol">
+    <p>Convert to: <select name="dest" id="destcol">
       <option>RGB</option>
       <option>CMYK</option>
       <option>HSV</option>
@@ -21,14 +22,15 @@
     </select></p>
     <br>
     <div id="rgb">
-    <p>R (0-255): <input type="number" min="0" max="255" id="rc1"></p>
-    <p>G (0-255): <input type="number" min="0" max="255" id="rc2"></p>
-    <p>B (0-255): <input type="number" min="0" max="255" id="rc3"></p>
+    <p>R (0-255): <input name="r" type="number" min="0" max="255" id="rc1"></p>
+    <p>G (0-255): <input name="g" type="number" min="0" max="255" id="rc2"></p>
+    <p>B (0-255): <input name="b" type="number" min="0" max="255" id="rc3"></p>
     </div>
     <br>
-    <p>Hex code (#000000-#ffffff): <input type="text" pattern="^#([A-Fa-f0-9]{6})$" id="rc4"></p>
+    <p>Hex code (#000000-#ffffff): <input name="hex" type="text" pattern="^#([A-Fa-f0-9]{6})$" id="rc4"></p>
     <p>Note: If a hex code is entered it takes priority over any decimal values entered.</p>
-    <button type="button" onclick="rcparse()">Convert</button>
+    <input type="submit" value="Convert">
+    </form>
     <br>
     <h2 id="output1" style="display: none;">Output: C <span id="rc5">0</span>, M <span id="rc6">0</span>, Y <span id="rc7">0</span>, K <span id="rc8">0</span></h2>
     <br>
