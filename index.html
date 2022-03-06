@@ -22,14 +22,32 @@
     </select></p>
     <br>
     <div id="rgb">
-    <p>R (0-255): <input type="number" min="0" max="255" id="rc1"></p>
-    <p>G (0-255): <input type="number" min="0" max="255" id="rc2"></p>
-    <p>B (0-255): <input type="number" min="0" max="255" id="rc3"></p>
+    <p style="display: inline-block;">R (0-255): <input type="number" min="0" max="255" id="rc1"></p>
+    <p style="display: inline-block;">G (0-255): <input type="number" min="0" max="255" id="rc2"></p>
+    <p style="display: inline-block;">B (0-255): <input type="number" min="0" max="255" id="rc3"></p>
+    </div>
+    <div id="cmyk">
+    <p style="display: none;">C (0-100): <input type="number" min="0" max="100" id="rc5"></p>
+    <p style="display: none;">M (0-100): <input type="number" min="0" max="100" id="rc6"></p>
+    <p style="display: none;">Y (0-100): <input type="number" min="0" max="100" id="rc7"></p>
+    <p style="display: none;">K (0-100): <input type="number" min="0" max="100" id="rc8"></p>
+    </div>
+    <div id="hsv">
+    <p style="display: none;">H (0-360): <input type="number" min="0" max="100" id="rc9"></p>
+    <p style="display: none;">S (0-100): <input type="number" min="0" max="100" id="rc10"></p>
+    <p style="display: none;">V (0-100): <input type="number" min="0" max="100" id="rc11"></p>
+    </div>
+    <div id="hsl">
+    <p style="display: none;">H (0-360): <input type="number" min="0" max="100" id="rc12"></p>
+    <p style="display: none;">S (0-100): <input type="number" min="0" max="100" id="rc13"></p>
+    <p style="display: none;">L (0-100): <input type="number" min="0" max="100" id="rc14"></p>
     </div>
     <br>
+    <div id="hex">
     <p>Hex code (#000000-#ffffff): <input type="text" pattern="^#([A-Fa-f0-9]{6})$" id="rc4"></p>
     <p>Note: If a hex code is entered it takes priority over any decimal values entered.</p>
     <input type="submit" value="Convert">
+    </div>
     </form>
     <br>
     <h2 id="output1" style="display: none;">G</h2>
