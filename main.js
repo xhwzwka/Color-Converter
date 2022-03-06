@@ -1,3 +1,51 @@
+var model;
+function checkmodels() {
+  var source = document.getElementById("sourcecol").value;
+  var dest = document.getElementById("destcol").value;
+  
+  if (source == dest) {
+    document.getElementById("none").style.display = "inline-block";
+    document.getElementById("hex").style.display = "none";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    
+  } else if (source=="RGB") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "inline-block";
+    document.getElementById("rgb").style.display = "inline-block";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    
+  } else if (source=="CMYK") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "inline-block";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "inline-block";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    
+  } else if (source=="HSV") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "inline-block";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "inline-block";
+    document.getElementById("hsl").style.display = "none";
+    
+  } else if (source=="HSL") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "inline-block";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "inline-block";
+  
+  }
+}
+
 function rcparse() {
   var hex = document.getElementById("rc4").value;
   if (hex == "") {
@@ -44,3 +92,5 @@ y = Math.max(0,Math.floor(y*100));
 k = Math.max(0,Math.floor(k*100));
 return [c,m,y,k];
 }
+
+setInterval(checkmodels);
