@@ -65,7 +65,7 @@ if (max==0) {
 }
 var v = max;
 
-h = Math.max(0,Math.floor(h));
+h = Math.max(0,Math.floor((h+720)%360));
 s = Math.max(0,Math.floor(s*100));
 v = Math.max(0,Math.floor(v*100));
 return [h,s,v];
