@@ -79,7 +79,7 @@ var val = v*s;
 var val2 = val*(1-Math.abs((h/60)%2 - 1));
 var diff = v-val;
 
-if (0<=h<60) {
+if (0<=h<60 || h==360) {
   var r = val;
   var g = val2;
   var b = 0;
@@ -99,7 +99,7 @@ if (0<=h<60) {
   var r = val2;
   var g = 0;
   var b = val;
-} else if (300<=h<361) {
+} else if (300<=h<360) {
   var r = val;
   var g = 0;
   var b = val2;
