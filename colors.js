@@ -71,7 +71,7 @@ v = Math.max(0,Math.floor(v*100));
 return [h,s,v];
 }
 
-function hsvtorgb(h,s,v) _
+function hsvtorgb(h,s,v) {
 s = s/100;
 v = v/100;
 
