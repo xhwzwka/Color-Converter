@@ -70,3 +70,47 @@ s = Math.max(0,Math.floor(s*100));
 v = Math.max(0,Math.floor(v*100));
 return [h,s,v];
 }
+
+function hsvtorgb(h,s,v) _
+s = s/100;
+v = v/100;
+
+var val = v*s;
+var val2 = val*(1-Math.abs((h/60)%2 - 1));
+var diff = v-val;
+
+if (0<=h<60) {
+  var r = val;
+  var g = val2;
+  var b = 0;
+} else if (60<=h<120) {
+  var r = val2;
+  var g = val;
+  var b = 0;
+} else if (120<=h<180) {
+  var r = 0;
+  var g = val;
+  var b = val2;
+} else if (180<=h<240) {
+  var r = 0;
+  var g = val2;
+  var b = val;
+} else if (240<=h<300) {
+  var r = val2;
+  var g = 0;
+  var b = val;
+} else if (300<=h<361) {
+  var r = val;
+  var g = 0;
+  var b = val2;
+}
+
+r = (r+diff)*255;
+g = (g+diff)*255;
+b = (b+diff)*255;
+
+r = Math.max(0,Math.floor(r));
+g = Math.max(0,Math.floor(g));
+b = Math.max(0,Math.floor(b));
+return [r,g,b];
+}
