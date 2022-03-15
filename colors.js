@@ -79,27 +79,27 @@ var val = v*s;
 var val2 = val*(1-Math.abs((h/60)%2 - 1));
 var diff = v-val;
 
-if (0<=h<60 || h==360) {
+if ((0<=h && h<60) || h==360) {
   var r = val;
   var g = val2;
   var b = 0;
-} else if (60<=h<120) {
+} else if (60<=h && h<120) {
   var r = val2;
   var g = val;
   var b = 0;
-} else if (120<=h<180) {
+} else if (120<=h && h<180) {
   var r = 0;
   var g = val;
   var b = val2;
-} else if (180<=h<240) {
+} else if (180<=h && h<240) {
   var r = 0;
   var g = val2;
   var b = val;
-} else if (240<=h<300) {
+} else if (240<=h && h<300) {
   var r = val2;
   var g = 0;
   var b = val;
-} else if (300<=h<360) {
+} else if (300<=h && h<360) {
   var r = val;
   var g = 0;
   var b = val2;
@@ -146,4 +146,48 @@ h = Math.max(0,Math.floor((h+720)%360));
 s = Math.max(0,Math.floor(s*100));
 l = Math.max(0,Math.floor(l*100));
 return [h,s,l];
+}
+
+function hsltorgb(h,s,l) {
+s = s/100;
+l = l/100;
+
+var val = (1-Math.abs(2*l-1))*s;
+var val2 = val*(1-Math.abs((h/60)%2 - 1));
+var diff = l - val/2;
+
+if ((0<=h && h<60) || h==360) {
+  var r = val;
+  var g = val2;
+  var b = 0;
+} else if (60<=h && h<120) {
+  var r = val2;
+  var g = val;
+  var b = 0;
+} else if (120<=h && h<180) {
+  var r = 0;
+  var g = val;
+  var b = val2;
+} else if (180<=h && h<240) {
+  var r = 0;
+  var g = val2;
+  var b = val;
+} else if (240<=h && h<300) {
+  var r = val2;
+  var g = 0;
+  var b = val;
+} else if (300<=h && h<360) {
+  var r = val;
+  var g = 0;
+  var b = val2;
+}
+
+r = (r+diff)*255;
+g = (g+diff)*255;
+b = (b+diff)*255;
+
+r = Math.max(0,Math.floor(r));
+g = Math.max(0,Math.floor(g));
+b = Math.max(0,Math.floor(b));
+return [r,g,b];
 }
