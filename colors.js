@@ -114,3 +114,36 @@ g = Math.max(0,Math.floor(g));
 b = Math.max(0,Math.floor(b));
 return [r,g,b];
 }
+
+function rgbtohsl(r,g,b) {
+r = r/255;
+g = g/255;
+b = b/255;
+
+var max = Math.max(r,g,b);
+var min = Math.min(r,g,b);
+var diff = max-min;
+
+if (diff==0) {
+  var h = 0;
+} else if (max==r) {
+  var h = 60*((g-b)/diff % 6);
+} else if (max==g) {
+  var h = 60*((b-r)/diff + 2);
+} else if (max==b) {
+  var h = 60*((r-g)/diff + 4);
+}
+
+var l = (max+min)/2;
+
+if (diff==0) {
+  var s = 0;
+} else {
+  var s = diff/(1-Math.abs(2*l - 1));
+}
+
+h = Math.max(0,Math.floor((h+720)%360));
+s = Math.max(0,Math.floor(s*100));
+l = Math.max(0,Math.floor(l*100));
+return [h,s,l];
+}
