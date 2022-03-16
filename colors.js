@@ -19,7 +19,7 @@ if (b<16) {
 }
 
 var hex = "#"+rh+gh+bh;
-return hex;
+return [hex];
 }
 
 function hextorgb(hex) {
