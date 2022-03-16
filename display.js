@@ -10,6 +10,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("convert").style.display = "none";
     
   } else if (source=="Hex") {
     document.getElementById("none").style.display = "none";
@@ -18,6 +19,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="RGB") {
     document.getElementById("none").style.display = "none";
@@ -26,6 +28,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="CMYK") {
     document.getElementById("none").style.display = "none";
@@ -34,6 +37,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "inline-block";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="HSV") {
     document.getElementById("none").style.display = "none";
@@ -42,6 +46,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "inline-block";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="HSL") {
     document.getElementById("none").style.display = "none";
@@ -50,6 +55,7 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "inline-block";
+    document.getElementById("convert").style.display = "inline-block";
   
   }
 }
