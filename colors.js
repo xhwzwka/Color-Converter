@@ -1,5 +1,9 @@
 function rgbtohex(r,g,b) {
 
+r = +r;
+g = +g;
+b = +b;
+
 if (r<16) {
   var rh = "0"+r.toString(16);
 } else {
