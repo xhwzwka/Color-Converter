@@ -1,24 +1,24 @@
 function rgbtohex(r,g,b) {
 
 if (r<16) {
-  r = "0"+r.toString(16);
+  var rh = "0"+r.toString(16);
 } else {
-  r = r.toString(16);
+  var rh = r.toString(16);
 }
 
 if (g<16) {
-  g = "0"+g.toString(16);
+  var gh = "0"+g.toString(16);
 } else {
-  g = g.toString(16);
+  var gh = g.toString(16);
 }
 
 if (b<16) {
-  b = "0"+b.toString(16);
+  var bh = "0"+b.toString(16);
 } else {
-  b = b.toString(16);
+  var bh = b.toString(16);
 }
 
-var hex = "#"+r+g+b;
+var hex = "#"+rh+gh+bh;
 return hex;
 }
 
