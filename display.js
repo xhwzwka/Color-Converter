@@ -83,16 +83,16 @@ function rcparse() {
     var output = window["rgbto"+dest](r_rgb,g_rgb,b_rgb);
   } else if (source=="hex") {
     var out = hextorgb(hex);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);}
+    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="cmyk") {
     var out = cmyktorgb(c_cmyk,m_cmyk,y_cmyk,k_cmyk);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);}
+    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="hsv") {
     var out = hsvtorgb(h_hsv,s_hsv,v_hsv);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);}
+    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="hsl") {
     var out = hsltorgb(h_hsl,s_hsl,l_hsl);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);}
+    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
   }
   
   if (dest=="rgb") {
