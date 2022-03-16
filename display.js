@@ -95,6 +95,9 @@ function rcparse() {
     if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
   }
   
+  document.getElementById("output1").style.display = "inline-block";
+  document.getElementById("output2").style.display = "inline-block";
+  
   if (dest=="rgb") {
     document.getElementById("output1").innerHTML = "R "+output[0]+", G "+output[1]+", B "+output[2];
     document.getElementById("output2").innerHTML = "Output is given as integers from 0 to 255.";
