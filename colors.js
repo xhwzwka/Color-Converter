@@ -1,3 +1,39 @@
+function rgbtohex(r,g,b) {
+
+if (r<16) {
+  r = "0"+r.toString(16);
+} else {
+  r = r.toString(16);
+}
+
+if (g<16) {
+  g = "0"+g.toString(16);
+} else {
+  g = g.toString(16);
+}
+
+if (b<16) {
+  b = "0"+b.toString(16);
+} else {
+  b = b.toString(16);
+}
+
+var hex = "#"+r+g+b;
+return hex;
+}
+
+function hextorgb(hex) {
+
+var r = hex.substr(1,2);
+var g = hex.substr(3,2);
+var b = hex.substr(5,2);
+
+r = parseInt(r,16);
+g = parseInt(g,16);
+b = parseInt(b,16);
+return [r,g,b];
+}
+
 function rgbtocmyk(r,g,b) {
 
 r = r/255;
