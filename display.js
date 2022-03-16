@@ -102,7 +102,7 @@ function rcparse() {
     document.getElementById("output1").innerHTML = "R "+output[0]+", G "+output[1]+", B "+output[2];
     document.getElementById("output2").innerHTML = "Output is given as integers from 0 to 255.";
   } else if (dest=="hex") {
-    document.getElementById("output1").innerHTML = "Hex "+output;
+    document.getElementById("output1").innerHTML = "Hex "+output[0];
     document.getElementById("output2").innerHTML = "Output is given as a hex code from #000000 to #ffffff.";
   } else if (dest=="cmyk") {
     document.getElementById("output1").innerHTML = "C "+output[0]+", M "+output[1]+", Y "+output[2]+", K "+output[3];
