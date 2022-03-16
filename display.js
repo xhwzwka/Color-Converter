@@ -62,7 +62,7 @@ function checkmodels() {
 
 function rcparse() {
   var source = document.getElementById("sourcecol").value.toLowerCase();
-  var dest = document.getElementById("destcol").value.toLowerCase;
+  var dest = document.getElementById("destcol").value.toLowerCase();
 
   var r_rgb = document.getElementById("rc1").value;
   var g_rgb = document.getElementById("rc2").value;
