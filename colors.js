@@ -377,3 +377,11 @@ y = Math.floor(y*1000)/1000;
 z = Math.floor(z*1000)/1000;
 return [x,y,z];
 }
+
+function rgbtorgb(r,g,b) {
+return [r,g,b];
+}
+
+function xyztoxyz(x,y,z) {
+return [x,y,z];
+}
