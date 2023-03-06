@@ -1,7 +1,7 @@
 var model;
 function checkmodels() {
-  var source = document.getElementById("sourcecol").value;
-  var dest = document.getElementById("destcol").value;
+  var source = document.getElementById("sourcecol").value.replace(/\s/g,"");
+  var dest = document.getElementById("destcol").value.replace(/\s/g,"");
   
   if (source == dest) {
     document.getElementById("none").style.display = "inline-block";
@@ -10,6 +10,10 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "none";
     
   } else if (source=="Hex") {
@@ -19,6 +23,10 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="RGB") {
@@ -28,6 +36,10 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="CMYK") {
@@ -37,6 +49,10 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "inline-block";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="HSV") {
@@ -46,6 +62,10 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "inline-block";
     document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
     
   } else if (source=="HSL") {
@@ -55,9 +75,67 @@ function checkmodels() {
     document.getElementById("cmyk").style.display = "none";
     document.getElementById("hsv").style.display = "none";
     document.getElementById("hsl").style.display = "inline-block";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
+  
+    
+  } else if (source=="XYZ") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "none";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "inline-block";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
+  
+  } else if (source=="Yxy") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "none";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "inline-block";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
+  
+  } else if (source=="CIE Lab") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "none";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "inline-block";
+    document.getElementById("hunterlab").style.display = "none";
+    document.getElementById("convert").style.display = "inline-block";
+  
+  } else if (source=="Hunter Lab") {
+    document.getElementById("none").style.display = "none";
+    document.getElementById("hex").style.display = "none";
+    document.getElementById("rgb").style.display = "none";
+    document.getElementById("cmyk").style.display = "none";
+    document.getElementById("hsv").style.display = "none";
+    document.getElementById("hsl").style.display = "none";
+    document.getElementById("xyz").style.display = "none";
+    document.getElementById("yxy").style.display = "none";
+    document.getElementById("cielab").style.display = "none";
+    document.getElementById("hunterlab").style.display = "inline-block";
     document.getElementById("convert").style.display = "inline-block";
   
   }
+
 }
 
 function rcparse() {
@@ -78,22 +156,59 @@ function rcparse() {
   var h_hsl = document.getElementById("rc12").value;
   var s_hsl = document.getElementById("rc13").value;
   var l_hsl = document.getElementById("rc14").value;
+  var x_xyz = document.getElementById("rc15").value;
+  var y_xyz = document.getElementById("rc16").value;
+  var z_xyz = document.getElementById("rc17").value;
+  var y_yxy = document.getElementById("rc18").value;
+  var x2_yxy = document.getElementById("rc19").value;
+  var y2_yxy = document.getElementById("rc20").value;
+  var l_cielab = document.getElementById("rc21").value;
+  var a_cielab = document.getElementById("rc22").value;
+  var b_cielab = document.getElementById("rc23").value;
+  var l_hunterlab = document.getElementById("rc24").value;
+  var a_hunterlab = document.getElementById("rc25").value;
+  var b_hunterlab = document.getElementById("rc26").value;
 
+  var base = {"hex":"rgb","rgb":"rgb","cmyk":"rgb","hsv":"rgb","hsl":"rgb","xyz":"xyz","yxy":"xyz","cielab":"xyz","hunterlab":"xyz"};
+  
   if (source=="rgb") {
-    var output = window["rgbto"+dest](r_rgb,g_rgb,b_rgb);
+    var out2 = rgbtorgb(r_rgb,g_rgb,b_rgb);
+    var out = window["rgbto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="hex") {
-    var out = hextorgb(hex);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
+    var out2 = hextorgb(hex);
+    var out = window["rgbto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="cmyk") {
-    var out = cmyktorgb(c_cmyk,m_cmyk,y_cmyk,k_cmyk);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
+    var out2 = cmyktorgb(c_cmyk,m_cmyk,y_cmyk,k_cmyk);
+    var out = window["rgbto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="hsv") {
-    var out = hsvtorgb(h_hsv,s_hsv,v_hsv);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
+    var out2 = hsvtorgb(h_hsv,s_hsv,v_hsv);
+    var out = window["rgbto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
   } else if (source=="hsl") {
-    var out = hsltorgb(h_hsl,s_hsl,l_hsl);
-    if (dest != "rgb") {var output = window["rgbto"+dest](out[0],out[1],out[2]);} else {var output = out;}
+    var out2 = hsltorgb(h_hsl,s_hsl,l_hsl);
+    var out = window["rgbto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
+  } else if (source=="xyz") {
+    var out2 = xyztoxyz(x_xyz,y_xyz,z_xyz);
+    var out = window["xyzto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
+  } else if (source=="yxy") {
+    var out2 = yxytoxyz(y_yxy,x2_yxy,y2_yxy);
+    var out = window["xyzto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
+  } else if (source=="cielab") {
+    var out2 = cielabtoxyz(l_cielab,a_cielab,b_cielab);
+    var out = window["xyzto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
+  } else if (source=="hunterlab") {
+    var out2 = hunterlabtoxyz(l_hunterlab,a_hunterlab,b_hunterlab);
+    var out = window["xyzto"+base[dest]](out2[0],out2[1],out2[2]);
+    if (dest != base[dest]) {var output = window[base[dest]+"to"+dest](out[0],out[1],out[2]);} else {var output = out;}
   }
+
   
   document.getElementById("output1").style.display = "inline-block";
   document.getElementById("output2").style.display = "inline-block";
@@ -113,7 +228,19 @@ function rcparse() {
   } else if (dest=="hsl") {
     document.getElementById("output1").innerHTML = "H "+output[0]+", S "+output[1]+", L "+output[2];
     document.getElementById("output2").innerHTML = "Output is given as integers from 0 to 360 for H, and 0 to 100 for S and L.";
+  } else if (dest=="xyz") {
+    document.getElementById("output1").innerHTML = "X "+output[0]+", Y "+output[1]+", Z "+output[2];
+    document.getElementById("output2").innerHTML = "Output is given as real numbers rounded to 3 decimal places.";
+  } else if (dest=="yxy") {
+    document.getElementById("output1").innerHTML = "Y "+output[0]+", x "+output[1]+", y "+output[2];
+    document.getElementById("output2").innerHTML = "Output is given as real numbers rounded to 3 decimal places.";
+  } else if (dest=="cielab") {
+    document.getElementById("output1").innerHTML = "L "+output[0]+", a "+output[1]+", b "+output[2];
+    document.getElementById("output2").innerHTML = "Output is given as real numbers rounded to 3 decimal places.";
+  } else if (dest=="hunterlab") {
+    document.getElementById("output1").innerHTML = "L "+output[0]+", a "+output[1]+", b "+output[2];
+    document.getElementById("output2").innerHTML = "Output is given as real numbers rounded to 3 decimal places.";
   }
 }
 
-setInterval(checkmodels);
+setInterval(checkmodels,50);
