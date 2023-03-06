@@ -1,7 +1,7 @@
 var model;
 function checkmodels() {
-  var source = document.getElementById("sourcecol").value.replace(/\s/g,"");
-  var dest = document.getElementById("destcol").value.replace(/\s/g,"");
+  var source = document.getElementById("sourcecol").value.replace(/\x20/g,"");
+  var dest = document.getElementById("destcol").value.replace(/\x20/g,"");
   
   if (source == dest) {
     document.getElementById("none").style.display = "inline-block";
