@@ -138,6 +138,8 @@ function checkmodels() {
 
 }
 
+var base = {"hex":"rgb","rgb":"rgb","cmyk":"rgb","hsv":"rgb","hsl":"rgb","xyz":"xyz","yxy":"xyz","cielab":"xyz","hunterlab":"xyz"};
+
 function rcparse() {
   var source = document.getElementById("sourcecol").value.toLowerCase();
   var dest = document.getElementById("destcol").value.toLowerCase();
@@ -168,8 +170,6 @@ function rcparse() {
   var l_hunterlab = document.getElementById("rc24").value;
   var a_hunterlab = document.getElementById("rc25").value;
   var b_hunterlab = document.getElementById("rc26").value;
-
-  var base = {"hex":"rgb","rgb":"rgb","cmyk":"rgb","hsv":"rgb","hsl":"rgb","xyz":"xyz","yxy":"xyz","cielab":"xyz","hunterlab":"xyz"};
   
   if (source=="rgb") {
     var out2 = rgbtorgb(r_rgb,g_rgb,b_rgb);
