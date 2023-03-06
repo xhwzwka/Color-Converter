@@ -108,7 +108,7 @@ function checkmodels() {
     document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
   
-  } else if (source=="CIE Lab") {
+  } else if (source=="CIELab") {
     document.getElementById("none").style.display = "none";
     document.getElementById("hex").style.display = "none";
     document.getElementById("rgb").style.display = "none";
@@ -121,7 +121,7 @@ function checkmodels() {
     document.getElementById("hunterlab").style.display = "none";
     document.getElementById("convert").style.display = "inline-block";
   
-  } else if (source=="Hunter Lab") {
+  } else if (source=="HunterLab") {
     document.getElementById("none").style.display = "none";
     document.getElementById("hex").style.display = "none";
     document.getElementById("rgb").style.display = "none";
