@@ -231,3 +231,149 @@ g = Math.max(0,Math.floor(g));
 b = Math.max(0,Math.floor(b));
 return [r,g,b];
 }
+
+function rgbtoxyz(r,g,b) {
+
+r = r/255;
+g = g/255;
+b = b/255;
+
+r = r<=0.04045 ? r/12.92 : ((r+0.055)/1.055)**2.4;
+g = g<=0.04045 ? g/12.92 : ((g+0.055)/1.055)**2.4;
+b = b<=0.04045 ? b/12.92 : ((b+0.055)/1.055)**2.4;
+
+var x = 0.4124564*r + 0.3575761*g + 0.1804375*b;
+var y = 0.2126729*r + 0.7151522*g + 0.072175*b;
+var z = 0.0193339*r + 0.119192*g + 0.9503041*b;
+
+x *= 100;
+y *= 100;
+z *= 100;
+
+x = Math.floor(x*1000)/1000;
+y = Math.floor(y*1000)/1000;
+z = Math.floor(z*1000)/1000;
+return [x,y,z];
+}
+
+function xyztorgb(x,y,z) {
+
+x = x/100;
+y = y/100;
+z = z/100;
+
+var r = 3.2404542*x + -1.5371385*y + -0.4985314*z;
+var g = -0.969266*x + 1.8760108*y + 0.041556*z;
+var b = 0.0556434*x + -0.2040259*y + 1.0572252*z;
+
+r = r<=0.0031308 ? r*12.92 : 1.055*r**(1/2.4)-0.055;
+g = g<=0.0031308 ? g*12.92 : 1.055*g**(1/2.4)-0.055;
+b = b<=0.0031308 ? b*12.92 : 1.055*b**(1/2.4)-0.055;
+
+r *= 255;
+g *= 255;
+b *= 255;
+
+r = Math.min(255,Math.max(0,Math.floor(r)));
+g = Math.min(255,Math.max(0,Math.floor(g)));
+b = Math.min(255,Math.max(0,Math.floor(b)));
+return [r,g,b];
+}
+
+function xyztoyxy(x,y,z) {
+
+var x2 = (x+y+z)==0 ? 0 : x/(x+y+z);
+var y2 = (x+y+z)==0 ? 0 : y/(x+y+z);
+
+y = Math.floor(y*1000)/1000;
+x2 = Math.floor(x2*1000)/1000;
+y2 = Math.floor(y2*1000)/1000;
+return [y,x2,y2];
+}
+
+function yxytoxyz(y,x2,y2) {
+
+var div = y2==0 ? 0 : y/y2;
+
+var x = x2*div;
+var z = (1-x2-y2)*div;
+
+x = Math.floor(x*1000)/1000;
+y = Math.floor(y*1000)/1000;
+z = Math.floor(z*1000)/1000;
+return [x,y,z];
+}
+
+function xyztocielab(x,y,z) {
+x = x/95.047;
+y = y/100;
+z = z/108.883;
+
+x = x>0.008856 ? x**(1/3) : 7.787*x + 16/116;
+y = y>0.008856 ? x**(1/3) : 7.787*y + 16/116;
+z = z>0.008856 ? x**(1/3) : 7.787*z + 16/116;
+
+var l = 116*y-16;
+var a = 500*(x-y);
+var b = 200*(y-z);
+
+l = Math.floor(l*1000)/1000;
+a = Math.floor(a*1000)/1000;
+b = Math.floor(b*1000)/1000;
+return [l,a,b];
+}
+
+function cielabtoxyz(l,a,b) {
+var y = (l+16)/116;
+var x = a/500+y;
+var z = y-b/200;
+
+x = x**3>0.008856 ? x**3 : (x-16/116)/7.787;
+y = y**3>0.008856 ? y**3 : (y-16/116)/7.787;
+z = z**3>0.008856 ? z**3 : (z-16/116)/7.787;
+
+x *= 95.047;
+y *= 100;
+z *= 108.883;
+
+x = Math.floor(x*1000)/1000;
+y = Math.floor(y*1000)/1000;
+z = Math.floor(z*1000)/1000;
+return [x,y,z];
+}
+
+function xyztohunterlab(x,y,z) {
+x = x/95.047;
+y = y/100;
+z = z/108.883;
+
+var ka = 175/198.04*195.047;
+var kb = 70/218.11*208.883;
+
+var l = 100*Math.sqrt(y);
+var a = (x-y)/Math.sqrt(y)*ka;
+var b = (y-z)/Math.sqrt(y)*kb;
+
+l = Math.floor(l*1000)/1000;
+a = Math.floor(a*1000)/1000;
+b = Math.floor(b*1000)/1000;
+return [l,a,b];
+}
+
+function hunterlabtoxyz(l,a,b) {
+var ka = 175/198.04*195.047;
+var kb = 70/218.11*208.883;
+
+var y = (l/100)**2;
+var x = (a/ka*Math.sqrt(y)+y);
+var z = (b/kb*Math.sqrt(y)+y);
+
+x *= 95.047;
+y *= 100;
+z *= 108.883;
+
+x = Math.floor(x*1000)/1000;
+y = Math.floor(y*1000)/1000;
+z = Math.floor(z*1000)/1000;
+return [x,y,z];
+}
